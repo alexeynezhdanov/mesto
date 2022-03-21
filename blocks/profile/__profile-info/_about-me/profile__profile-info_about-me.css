@@ -1,0 +1,22 @@
+.profile__profile-info_about-me {
+    margin: 16px auto 0 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+}
+
+@media screen and (max-width: 531px) {
+    .profile__profile-info_about-me {
+        margin: 14px auto 0;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .profile__profile-info_about-me {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
