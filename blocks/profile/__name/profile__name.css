@@ -1,4 +1,4 @@
-.profile__profile-info_edit-name_name {
+.profile__name {
     margin: 0;
     padding: 0;
     font-style: normal;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 425px) {
-    .profile__profile-info_edit-name_name {
+    .profile__name {
         font-size: 27px;
         line-height: 33px;
     }

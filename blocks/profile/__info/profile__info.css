@@ -1,4 +1,4 @@
-.profile__profile-info {
+.profile__info {
     margin: 22px auto auto 0;
     min-width: 336px;
     max-height: 73px;
@@ -7,14 +7,14 @@
 }
 
 @media screen and (max-width: 540px) {
-    .profile__profile-info {
+    .profile__info {
         margin: 26px auto 0;
         max-height: 73px;
     }
 }
 
 @media screen and (max-width: 425px) {
-    .profile__profile-info {
+    .profile__info {
         max-height: 54px;
     }
 }

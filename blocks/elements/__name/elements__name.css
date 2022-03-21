@@ -1,6 +1,6 @@
-.elements__element_place_name {
+.elements__name {
     margin: 0;
-    display: inline-block;
+    width: 219px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;

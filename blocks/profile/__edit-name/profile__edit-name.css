@@ -1,19 +1,20 @@
-.profile__profile-info_edit-name {
+.profile__edit-name {
     display: flex;
     flex-wrap: nowrap;
     position: relative;
     justify-content: center;
-    left: 14px;
 }
 
 @media screen and (max-width: 540px) {
-    .profile__profile-info_edit-name {
+    .profile__edit-name {
         max-height: 73px;
+        left: 21px;
     }
 }
 
 @media screen and (max-width: 425px) {
-    .profile__profile-info_edit-name {
+    .profile__edit-name {
         max-height: 54px;
+        left: 14px;
     }
 }
