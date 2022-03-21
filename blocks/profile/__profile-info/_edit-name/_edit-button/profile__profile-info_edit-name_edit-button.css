@@ -1,6 +1,5 @@
 .profile__profile-info_edit-name_edit-button {
-    margin: auto;
-    margin-left: 18px;
+    margin: auto auto 8px 18px;
     background-color: #000;
     background-image: url(../../../../../images/pencil.svg);
     background-size: 10px 10px;
@@ -19,7 +18,7 @@
 
 @media screen and (max-width: 531px) {
     .profile__profile-info_edit-name_edit-button {
-        margin: auto 0 6px 18px;
+        margin: auto 0 8px 18px;
     }
 }
 

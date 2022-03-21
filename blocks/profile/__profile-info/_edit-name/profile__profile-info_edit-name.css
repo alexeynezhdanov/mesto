@@ -3,6 +3,7 @@
     flex-wrap: nowrap;
     position: relative;
     justify-content: center;
+    left: 14px;
 }
 
 @media screen and (max-width: 540px) {
