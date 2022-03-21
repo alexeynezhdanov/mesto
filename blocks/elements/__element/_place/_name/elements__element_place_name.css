@@ -1,0 +1,7 @@
+.elements__element_place_name {
+    margin: 0;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
