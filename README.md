@@ -13,5 +13,5 @@
 
 **Сам проект**
 
-* [Ссылка на проект] https://github.com/yandex-praktikum/mesto.git
+* [Ссылка на проект] https://alexeynezhdanov.github.io/mesto/index.html
 =======
