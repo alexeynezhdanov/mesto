@@ -25,31 +25,29 @@
       <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватар">
       <div class="profile__info">
         <div class="profile__edit-name">
-          <h1 class="profile__name">Жак-Ив Кусто
-          </h1>
-          <button class="profile__edit-button">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <button type="submit" class="profile__edit-button">
           </button>
         </div>
-          <p class="profile__about-me">Исследователь океана
-          </p>
+          <p class="profile__about-me">Исследователь океана</p>
       </div>
-      <button class="profile__add-button">
+      <button type="submit" class="profile__add-button">
       </button>
     </section>
 
     <section class="popup">
-      <div class="popup__container">
-        <button class="popup__close-button">
+      <form class="popup__container">
+        <button type="submit" class="popup__close-button">
         </button> 
         <h2 class="popup__title">
           Редактировать профиль
         </h2>
-          <input type="text" class="popup__input-text" id="textName" placeholder="Имя">
-          <input type="text" class="popup__input-text" id="aboutMe" placeholder="О себе">
-          <button class="popup__save-button">
+          <input type="text" class="popup__input-text" id="textName" name="textname" placeholder="Имя">
+          <input type="text" class="popup__input-text" id="aboutMe" name="aboutme" placeholder="О себе">
+          <button type="submit" class="popup__save-button">
             Сохранить
           </button>
-      </div>
+        </form>
     </section>
 
     <section>
@@ -57,61 +55,61 @@
         <li class="elements__element">
           <img class="elements__photo" src="./images/mountains.jpg" alt="Горы">
           <div class="elements__place">
-            <p class="elements__name">
+            <h3 class="elements__name">
               Гора Эльбрус
-            </p>
-            <div class="elements__like">
-            </div>
+            </h3>
+            <button type="submit" class="elements__like">
+            </button>
           </div>
         </li>
         <li class="elements__element">
           <img class="elements__photo" src="./images/church.jpg" alt="Церковь">
           <div class="elements__place">
-            <p class="elements__name">
+            <h3 class="elements__name">
               Карачаевск
-            </p>
-            <div class="elements__like">
-            </div>
+            </h3>
+            <button type="submit" class="elements__like">
+            </button>
           </div>
         </li>
         <li class="elements__element">
           <img class="elements__photo" src="./images/fields.jpg" alt="Поля">
           <div class="elements__place">
-            <p class="elements__name">
+            <h3 class="elements__name">
               Донбай
-            </p>
-            <div class="elements__like">
-            </div>
+            </h3>
+            <button type="submit" class="elements__like">
+            </button>
           </div>
         </li>
         <li class="elements__element">
           <img class="elements__photo" src="./images/church.jpg" alt="Церковь">
           <div class="elements__place">
-            <p class="elements__name">
+            <h3 class="elements__name">
               Карачаево-Черкессия
-            </p>
-            <div class="elements__like">
-            </div>
+            </h3>
+            <button type="submit" class="elements__like">
+            </button>
           </div>
         </li>
         <li class="elements__element">
           <img class="elements__photo" src="./images/fields.jpg" alt="Поля">
           <div class="elements__place">
-            <p class="elements__name">
+            <h3 class="elements__name">
               Донбай
-            </p>
-            <div class="elements__like">
-            </div>
+            </h3>
+            <button type="submit" class="elements__like">
+            </button>
           </div>
         </li>
         <li class="elements__element">
           <img class="elements__photo" src="./images/mountains.jpg" alt="Горы">
           <div class="elements__place">
-            <p class="elements__name">
+            <h3 class="elements__name">
               Гора Эльбрус
-            </p>
-            <div class="elements__like">
-            </div>
+            </h3>
+            <button type="submit" class="elements__like">
+            </button>
           </div>
         </li>
       </ul>
@@ -123,7 +121,7 @@
       &copy; 2022. Нежданов Алексей
     </p>
   </footer>
-  <script src="./js/script.js">
+  <script src="./scripts/index.js">
   </script>
 </body>
 </html>

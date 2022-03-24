@@ -3,7 +3,6 @@
 @import url(../blocks/page/page.css);
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
-@import url(../blocks/header/__line/header__line.css);
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
 @import url(../blocks/profile/__info/profile__info.css);
@@ -23,6 +22,7 @@
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/elements/__element/elements__element.css);
 @import url(../blocks/elements/__like/elements__like.css);
+@import url(../blocks/elements/__like/_active/element__like_active.css);
 @import url(../blocks/elements/__name/elements__name.css);
 @import url(../blocks/elements/__photo/elements__photo.css);
 @import url(../blocks/elements/__place/elements__place.css);
