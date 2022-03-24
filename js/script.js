@@ -1,12 +1,12 @@
-let editButton = document.querySelector('.profile__profile-info_edit-name_edit-button');
+let editButton = document.querySelector('.profile__edit-button');
 let addButton = document.querySelector('.profile__add-button');
 let closeButton = document.querySelector('.popup__close-button');
 let saveButton = document.querySelector('.popup__save-button');
 let popup = document.querySelector('.popup');
 let textName = document.getElementById('textName');
 let aboutMe = document.getElementById('aboutMe');
-let profileName = document.querySelector('.profile__profile-info_edit-name_name');
-let profileAboutMe = document.querySelector('.profile__profile-info_about-me');
+let profileName = document.querySelector('.profile__name');
+let profileAboutMe = document.querySelector('.profile__about-me');
 
 function clickOpen() {
   console.log('Мы кликнули по элементу Open');
@@ -44,7 +44,7 @@ function addProfile() {
     }
     console.log(textName.value);
     console.log(profileName.textContent);
-  }
+  };
 
 saveButton.addEventListener('click', addProfile);
 saveButton.addEventListener('click', clickClose);
