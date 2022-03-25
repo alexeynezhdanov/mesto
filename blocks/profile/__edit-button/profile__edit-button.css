@@ -14,15 +14,17 @@
 
 .profile__edit-button:hover {
     opacity: 0.6;
+    cursor: pointer;
 }
 
-@media screen and (max-width: 531px) {
+@media screen and (max-width: 754px) {
     .profile__edit-button {
         margin: auto 0 8px 18px;
+
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 620px) {
     .profile__edit-button {
         margin: auto 0 6px 10px;
         background-size: 7.5px 7.5px;

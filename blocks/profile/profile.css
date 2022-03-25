@@ -6,19 +6,19 @@
 
 @media screen and (max-width: 918px) {
     .profile {
-        flex-wrap: wrap;
         margin-right: 19px;
         margin-left: 19px;
     }
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 754px) {
     .profile {
+        flex-flow: column wrap;
         justify-content: center;
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 620px) {
     .profile {
         margin-top: 42px;
     }

@@ -5,6 +5,7 @@ let textName = document.getElementById('textName');
 let aboutMe = document.getElementById('aboutMe');
 let profileName = document.querySelector('.profile__name');
 let profileAboutMe = document.querySelector('.profile__about-me');
+let formInfo = document.querySelector('form[name="profile-info"]');
 
 function clickOpen() {
   console.log('Мы кликнули по элементу Open');
@@ -27,4 +28,4 @@ function addProfile(popup) {
 
 editButton.addEventListener('click', clickOpen);
 closeButton.addEventListener('click', clickClose);
-popup.addEventListener('submit', addProfile);
+formInfo.addEventListener('submit', addProfile);

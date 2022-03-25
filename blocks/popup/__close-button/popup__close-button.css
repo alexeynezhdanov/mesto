@@ -6,27 +6,22 @@
     background-color: rgba(0, 0, 0, 0);
     background-size: 32px;
     border: none;
-    position: relative;
-    top: -40px;
-    left: 438px;
+    position: absolute;
+    top: calc(50vh - 209px);
+    right: calc(50vw - 255px);
 }
 
 .popup__close-button:hover {
     opacity: 0.6;
+    cursor: pointer;
 }
 
-@media screen and (max-width: 510px) {
-    .popup__close-button {
-        left: calc(100% - 40px); 
-    }
-}
-
-@media screen and (max-width: 468px) {
+@media screen and (max-width: 515px) {
     .popup__close-button {
         background-size: 20px;
         width: 20px;
         height: 20px;
-        top: -36px;
-        left: 262px;
+        top: calc(50vh - 197px);
+        right: calc(50vw - 141px);
     }
 }

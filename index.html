@@ -16,8 +16,6 @@
   <header class="header">
     <div class="header__logo">
     </div>
-    <div class="header__line">
-    </div>
   </header>
 
   <main class="content">
@@ -26,28 +24,30 @@
       <div class="profile__info">
         <div class="profile__edit-name">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button type="submit" class="profile__edit-button">
+          <button type="button" class="profile__edit-button">
           </button>
         </div>
           <p class="profile__about-me">Исследователь океана</p>
       </div>
-      <button type="submit" class="profile__add-button">
+      <button type="button" class="profile__add-button">
       </button>
     </section>
 
     <section class="popup">
-      <form class="popup__container">
-        <button type="submit" class="popup__close-button">
-        </button> 
-        <h2 class="popup__title">
-          Редактировать профиль
-        </h2>
-          <input type="text" class="popup__input-text" id="textName" name="textname" placeholder="Имя">
-          <input type="text" class="popup__input-text" id="aboutMe" name="aboutme" placeholder="О себе">
+      <div class="popup__container">
+        <form name="profile-info">
+          <h2 class="popup__title">
+            Редактировать профиль
+          </h2>
+          <input type="text" class="popup__input-text" maxlength="14" id="textName" name="textname" placeholder="Имя">
+          <input type="text" class="popup__input-text" maxlength="25" id="aboutMe" name="aboutme" placeholder="О себе">
           <button type="submit" class="popup__save-button">
             Сохранить
           </button>
         </form>
+        <button type="button" class="popup__close-button">
+        </button>
+      </div>
     </section>
 
     <section>
@@ -58,7 +58,7 @@
             <h3 class="elements__name">
               Гора Эльбрус
             </h3>
-            <button type="submit" class="elements__like">
+            <button type="button" class="elements__like">
             </button>
           </div>
         </li>
@@ -68,7 +68,7 @@
             <h3 class="elements__name">
               Карачаевск
             </h3>
-            <button type="submit" class="elements__like">
+            <button type="button" class="elements__like">
             </button>
           </div>
         </li>
@@ -78,7 +78,7 @@
             <h3 class="elements__name">
               Донбай
             </h3>
-            <button type="submit" class="elements__like">
+            <button type="button" class="elements__like">
             </button>
           </div>
         </li>
@@ -88,7 +88,7 @@
             <h3 class="elements__name">
               Карачаево-Черкессия
             </h3>
-            <button type="submit" class="elements__like">
+            <button type="button" class="elements__like">
             </button>
           </div>
         </li>
@@ -98,7 +98,7 @@
             <h3 class="elements__name">
               Донбай
             </h3>
-            <button type="submit" class="elements__like">
+            <button type="button" class="elements__like">
             </button>
           </div>
         </li>
@@ -108,7 +108,7 @@
             <h3 class="elements__name">
               Гора Эльбрус
             </h3>
-            <button type="submit" class="elements__like">
+            <button type="button" class="elements__like">
             </button>
           </div>
         </li>

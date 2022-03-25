@@ -7,14 +7,14 @@
     color: #FFFFFF;
 }
 
-@media screen and (max-width: 531px) {
+@media screen and (max-width: 754px) {
     .profile__about-me {
         margin: 14px auto 0;
         text-align: center;
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 620px) {
     .profile__about-me {
         font-size: 14px;
         line-height: 17px;
