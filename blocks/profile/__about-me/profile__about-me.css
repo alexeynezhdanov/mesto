@@ -13,13 +13,13 @@
 
 @media screen and (max-width: 918px) {
     .profile__about-me {
-        max-width: calc(100vw - 410px);
+        max-width: calc(100% - 410px);
     }
 }
 
 @media screen and (max-width: 754px) {
     .profile__about-me {
-        max-width: calc(100vw - 150px);
+        max-width: calc(100% - 150px);
         margin: 14px auto 0;
         text-align: center;
     }
