@@ -7,6 +7,7 @@
 
 @media screen and (max-width: 754px) {
     .profile__edit-name {
+        max-width: 569px;
         left: 21px;
     }
 }
