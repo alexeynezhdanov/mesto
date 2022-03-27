@@ -11,9 +11,9 @@
     overflow: hidden;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 918px) {
     .profile__about-me {
-        max-width: calc(100vw - 372px);
+        max-width: calc(100vw - 410px);
     }
 }
 
