@@ -1,4 +1,5 @@
 let editButton = document.querySelector('.profile__edit-button');
+let addButton = document.querySelector('.profile__add-button');
 let closeButton = document.querySelector('.popup__close-button');
 let popup = document.querySelector('.popup');
 let textName = document.getElementById('textName');
@@ -12,12 +13,12 @@ function clickOpen() {
   textName.value = profileName.textContent;
   aboutMe.value = profileAboutMe.textContent;
   popup.classList.add('popup_opened');
-}
+};
 
 function clickClose() {
   console.log('Мы кликнули по элементу Close');
   popup.classList.remove('popup_opened');
-}
+};
 
 function addProfile(popup) {
   popup.preventDefault();
@@ -27,5 +28,6 @@ function addProfile(popup) {
 };
 
 editButton.addEventListener('click', clickOpen);
+addButton.addEventListener('click', clickAdd);
 closeButton.addEventListener('click', clickClose);
 formInfo.addEventListener('submit', addProfile);
