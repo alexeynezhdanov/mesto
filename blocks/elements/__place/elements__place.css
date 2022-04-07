@@ -7,5 +7,6 @@
     font-size: 24px;
     line-height: 29px;
     display: flex;
+    position: relative;
     justify-content: space-between;
 }
