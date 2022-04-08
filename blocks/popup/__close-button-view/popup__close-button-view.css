@@ -1,8 +1,8 @@
-.popup__close-button_view {
+.popup__close-button-view {
     padding: 0;
     width: 32px;
     height: 32px;
-    background-image: url(../../../../images/close-Icon.svg);
+    background-image: url(../../../images/close-Icon.svg);
     background-color: rgba(0, 0, 0, 0);
     background-size: 32px;
     border: none;
@@ -12,13 +12,13 @@
     z-index: 3;
 }
 
-.popup__close-button_view:hover {
+.popup__close-button-view:hover {
     opacity: 0.6;
     cursor: pointer;
 }
 
 @media screen and (max-width: 530px) {
-    .popup__close-button_view {
+    .popup__close-button-view {
         background-size: 20px;
         width: 20px;
         height: 20px;
