@@ -14,7 +14,7 @@
     justify-self: center;
 }
 
-@media screen and (max-width: 515px) {
+@media screen and (max-width: 530px) {
     .popup__input-text {
         margin: 30px auto 0 22px;
         width: 238px;

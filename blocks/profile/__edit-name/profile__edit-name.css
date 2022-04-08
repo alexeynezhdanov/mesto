@@ -9,12 +9,12 @@
 
 @media screen and (max-width: 754px) {
     .profile__edit-name {
-        max-width: 569px;
+        max-width: 560px;
         left: 21px;
     }
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 630px) {
     .profile__edit-name {
         left: 14px;
     }
