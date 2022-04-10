@@ -31,7 +31,7 @@
 @import url(../blocks/elements/__like/elements__like.css);
 @import url(../blocks/elements/__like/_active/element__like_active.css);
 @import url(../blocks/elements/__basket/elements__basket.css);
-@import url(../blocks/elements/__name/elements__name.css);
+@import url(../blocks/elements/__caption/elements__caption.css);
 @import url(../blocks/elements/__photo/elements__photo.css);
 @import url(../blocks/elements/__place/elements__place.css);
 @import url(../blocks/footer/footer.css);

@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Проектная работа 5, от Алексея Нежданова на Яндекс.Практикуме"> 
+  <meta name="description" content="Проектная работа 5, от Алексея Нежданова на Яндекс.Практикуме">
   <meta name="keywords" content="Место">
   <meta name="author" content="Алексей Нежданов">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,52 +28,52 @@
           <button type="button" class="profile__edit-button">
           </button>
         </div>
-          <p class="profile__about-me">Исследователь океана</p>
+        <p class="profile__about-me">Исследователь океана</p>
       </div>
       <button type="button" class="profile__add-button">
       </button>
     </section>
 
     <section class="popup popup_profile">
-       <div class="popup__container">
-          <form name="profile-info">
-            <h2 class="popup__title">
-              Редактировать профиль
-            </h2>
-            <input type="text" class="popup__input-text" id="textName" name="textname" placeholder="Имя">
-            <input type="text" class="popup__input-text" id="aboutMe" name="aboutme" placeholder="О себе">
-            <button type="submit" class="popup__save-button">
-              Сохранить
-            </button>
-          </form>
-          <button type="button" class="popup__close-button popup__close-button-profile">
+      <div class="popup__container">
+        <form name="profile-info">
+          <h2 class="popup__title">
+            Редактировать профиль
+          </h2>
+          <input type="text" class="popup__input-text" id="textName" name="textname" placeholder="Имя">
+          <input type="text" class="popup__input-text" id="aboutMe" name="aboutme" placeholder="О себе">
+          <button type="submit" class="popup__save-button">
+            Сохранить
           </button>
-        </div>
+        </form>
+        <button type="button" class="popup__close-button popup__close-button-profile">
+        </button>
+      </div>
     </section>
 
     <section class="popup popup_card">
       <div class="popup__container">
-         <form name="card-info">
-           <h2 class="popup__title">
-             Новое место
-           </h2>
-           <input type="text" class="popup__input-text" id="cardName" name="cardname" placeholder="Название">
-           <input type="src" class="popup__input-text" id="cardLink" name="cardlink" placeholder="Ссылка на картинку">
-           <button type="submit" class="popup__save-button popup__save-button-card">
-             Создать
-           </button>
-         </form>
-         <button type="button" class="popup__close-button popup__close-button-card">
-         </button>
-       </div>
-   </section>
+        <form name="card-info">
+          <h2 class="popup__title">
+            Новое место
+          </h2>
+          <input type="text" class="popup__input-text" id="cardName" name="cardname" placeholder="Название">
+          <input type="src" class="popup__input-text" id="cardLink" name="cardlink" placeholder="Ссылка на картинку">
+          <button type="submit" class="popup__save-button popup__save-button-card">
+            Создать
+          </button>
+        </form>
+        <button type="button" class="popup__close-button popup__close-button-card">
+        </button>
+      </div>
+    </section>
 
     <section class="popup popup_view">
       <div class="popup__container-view">
         <img class="popup__image" alt="">
         <h3 class="popup__label">
         </h3>
-        <button type="button" class="popup__close-button-view">
+        <button type="button" class="popup__close-button popup__close-button-view">
         </button>
       </div>
     </section>
@@ -85,7 +86,7 @@
             <div class="elements__place">
               <button type="button" class="elements__basket">
               </button>
-              <h3 class="elements__name">
+              <h3 class="elements__caption">
               </h3>
               <button type="button" class="elements__like">
               </button>
@@ -104,4 +105,5 @@
   <script src="./scripts/index.js">
   </script>
 </body>
+
 </html>
