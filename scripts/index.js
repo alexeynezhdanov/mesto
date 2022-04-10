@@ -54,8 +54,8 @@ function createCard(name, link) {
   caption.textContent = name;
   photo.src = link;
   photo.alt = name;
-  openPopupView(photo, caption);
-  likes(cardElement);
+  handleImageClick(photo, caption);
+  handleLikes(cardElement);
   deleteCard(cardElement);
   return cardElement;
 };
@@ -87,7 +87,7 @@ function saveProfile(event) {
 };
 
 function closePopupProfile() {
-  clickClose(popupProfile);
+  closePopup(popupProfile);
 };
 
 /* Попап Card */
@@ -98,16 +98,16 @@ function openPopupCard() {
 function saveCard(event) {
   event.preventDefault();
   addCard(cardName.value, cardLink.value);
-  addCard.reset;
+  event.target.reset();
   closePopupCard();
 };
 
 function closePopupCard() {
-  clickClose(popupCard);
+  closePopup(popupCard);
 };
 
 /* Попап View */
-function openPopupView(photo, label) {
+function handleImageClick(photo, label) {
   photo.addEventListener('click', function () {
     openPopup(popupView);
     popupViewImage.src = photo.src;
@@ -117,7 +117,7 @@ function openPopupView(photo, label) {
 };
 
 function closePopupView() {
-  clickClose(popupView);
+  closePopup(popupView);
 };
 
 /* Открытие попапов */
@@ -126,12 +126,12 @@ function openPopup(popup) {
 };
 
 /* Закрытие попапов */
-function clickClose(popup) {
+function closePopup(popup) {
   popup.classList.remove('popup_opened');
 };
 
 /* Лайки */
-function likes(cardElement) {
+function handleLikes(cardElement) {
   cardElement.querySelector('.elements__like').addEventListener('click', function (evt) {
     evt.target.classList.toggle('element__like_active');
   });
