@@ -36,34 +36,38 @@
 
     <section class="popup popup_profile">
       <div class="popup__container">
-        <form name="profile-info">
+        <form name="profile-info" class="popup__form" novalidate>
           <h2 class="popup__title">
             Редактировать профиль
           </h2>
-          <input type="text" class="popup__input-text" id="textName" name="textname" placeholder="Имя">
-          <input type="text" class="popup__input-text" id="aboutMe" name="aboutme" placeholder="О себе">
-          <button type="submit" class="popup__save-button">
+          <input type="text" class="popup__input-text" id="textName" name="textname" placeholder="Имя" minlength="2" maxlength="40" required>
+          <span class="textName-error"></span>
+          <input type="text" class="popup__input-text" id="aboutMe" name="aboutme" placeholder="О себе" minlength="2" maxlength="200" required>
+          <span class="aboutMe-error"></span>
+          <button type="submit" class="popup__button">
             Сохранить
           </button>
         </form>
-        <button type="button" class="popup__close-button popup__close-button-profile">
+        <button type="button" class="popup__close-button close-profile">
         </button>
       </div>
     </section>
 
     <section class="popup popup_card">
       <div class="popup__container">
-        <form name="card-info">
+        <form name="card-info" class="popup__form" novalidate>
           <h2 class="popup__title">
             Новое место
           </h2>
-          <input type="text" class="popup__input-text" id="cardName" name="cardname" placeholder="Название">
-          <input type="src" class="popup__input-text" id="cardLink" name="cardlink" placeholder="Ссылка на картинку">
-          <button type="submit" class="popup__save-button popup__save-button-card">
+          <input type="text" class="popup__input-text" id="cardName" name="cardname" placeholder="Название" minlength="2" maxlength="30" required>
+          <span class="cardName-error"></span>
+          <input type="url" class="popup__input-text" id="cardLink" name="cardlink" placeholder="Ссылка на картинку" required>
+          <span class="cardLink-error"></span>
+          <button type="submit" class="popup__button popup__save-button-card">
             Создать
           </button>
         </form>
-        <button type="button" class="popup__close-button popup__close-button-card">
+        <button type="button" class="popup__close-button close-card">
         </button>
       </div>
     </section>
@@ -73,7 +77,7 @@
         <img class="popup__image" alt="">
         <h3 class="popup__label">
         </h3>
-        <button type="button" class="popup__close-button popup__close-button-view">
+        <button type="button" class="popup__close-button close-view">
         </button>
       </div>
     </section>
@@ -103,6 +107,8 @@
     </p>
   </footer>
   <script src="./scripts/index.js">
+  </script>
+  <script src="./scripts/validate.js">
   </script>
 </body>
 
