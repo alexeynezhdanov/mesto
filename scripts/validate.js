@@ -1,4 +1,4 @@
-/* Показать сообщение об ошибке */
+// Показать сообщение об ошибке
 const showInputError = (formElement, inputElement, errorMessage, {inputErrorClass, errorClass}) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.add(inputErrorClass);
@@ -6,7 +6,7 @@ const showInputError = (formElement, inputElement, errorMessage, {inputErrorClas
     errorElement.classList.add(errorClass);
   };
   
-/* Спрятать сообщене об ошибке */
+// Спрятать сообщене об ошибке
   const hideInputError = (formElement, inputElement, {inputErrorClass, errorClass}) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.remove(inputErrorClass);
@@ -14,7 +14,7 @@ const showInputError = (formElement, inputElement, errorMessage, {inputErrorClas
     errorElement.textContent = '';
   };
   
-  /* Проверить есть ли ошибка */
+  // Проверить есть ли ошибка
   const checkInputValidity = (formElement, inputElement, {inputErrorClass, errorClass}) => {
     if (!inputElement.validity.valid) {
       showInputError(formElement, inputElement, inputElement.validationMessage, {inputErrorClass, errorClass});
@@ -28,12 +28,12 @@ const showInputError = (formElement, inputElement, errorMessage, {inputErrorClas
     // Список всех полей Input
     const inputList = Array.from(formElement.querySelectorAll(inputSelector));
     const buttonElement = formElement.querySelector(submitButtonSelector);
-    // чтобы проверить состояние кнопки в самом начале
+    // Проверить состояние кнопки в самом начале
     toggleButtonState(inputList, buttonElement, {inactiveButtonClass});
       inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', function () {
         checkInputValidity(formElement, inputElement, {inputErrorClass, errorClass});
-        // чтобы проверять его при изменении любого из полей
+        // Проверить его при изменении любого из полей
         toggleButtonState(inputList, buttonElement, {inactiveButtonClass});
       });
     });
@@ -57,7 +57,7 @@ const showInputError = (formElement, inputElement, errorMessage, {inputErrorClas
       });
   };
   
-  /* Активна или нет кнопка */
+  // Активна или нет кнопка
   const toggleButtonState = (inputList, buttonElement, {inactiveButtonClass}) => {
     if (hasInvalidInput(inputList)) {
       buttonElement.classList.add(inactiveButtonClass);

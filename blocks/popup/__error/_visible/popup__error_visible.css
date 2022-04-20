@@ -1,5 +1,9 @@
 .popup__error_visible {
-    margin: 5px auto 0 36px;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    margin-top: 63px;
+    margin-left: 36px;
     padding: 0;
     max-width: 358px;
     font-style: normal;
@@ -7,4 +11,11 @@
     font-size: 12px;
     line-height: 15px;
     color: #FF0000;
+}
+
+@media screen and (max-width: 530px) {
+    .popup__error_visible {
+        margin-left: 22px;
+        max-width: 238px;
+    }
 }

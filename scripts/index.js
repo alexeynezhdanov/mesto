@@ -19,7 +19,8 @@ const cardTemplate = document.querySelector('#card').content;;
 const popupViewImage = document.querySelector('.popup__image');
 const popupViewLabel = document.querySelector('.popup__label');
 
-/* Исходный массив карточек */
+
+// Исходный массив карточек
 const initialCards = [
   {
     name: 'Архыз',
@@ -72,7 +73,7 @@ function showInitialCards() {
 };
 showInitialCards();
 
-/* Попап Profile */
+// Попап Profile
 function openPopupProfile() {
   textName.value = profileName.textContent;
   aboutMe.value = profileAboutMe.textContent;
@@ -83,30 +84,34 @@ function saveProfile(event) {
   event.preventDefault();
   profileName.textContent = textName.value;
   profileAboutMe.textContent = aboutMe.value;
+ if (!saveButtonProfile.querySelector('.popup__button_disabled')) {
   closePopupProfile();
+ };
 };
 
 function closePopupProfile() {
   closePopup(popupProfile);
 };
 
-/* Попап Card */
+// Попап Card
 function openPopupCard() {
   openPopup(popupCard);
 };
 
 function saveCard(event) {
   event.preventDefault();
-  addCard(cardName.value, cardLink.value);
-  event.target.reset();
-  closePopupCard();
+  if (!saveButtonCard.querySelector('.popup__button_disabled')) {
+    addCard(cardName.value, cardLink.value);
+    closePopupCard();
+   };
+   event.target.reset();
 };
 
 function closePopupCard() {
   closePopup(popupCard);
 };
 
-/* Попап View */
+// Попап View
 function handleImageClick(photo, label) {
   photo.addEventListener('click', function () {
     openPopup(popupView);
@@ -120,24 +125,25 @@ function closePopupView() {
   closePopup(popupView);
 };
 
-/* Открытие попапов */
+// Открытие попапов
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  popup.addEventListener('click', closeOverlay);
 };
 
-/* Закрытие попапов */
+// Закрытие попапов
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
 };
 
-/* Лайки */
+// Лайки
 function handleLikes(cardElement) {
   cardElement.querySelector('.elements__like').addEventListener('click', function (evt) {
     evt.target.classList.toggle('element__like_active');
   });
 };
 
-/* Корзина */
+// Корзина
 function deleteCard(cardElement) {
   const deleteButton = cardElement.querySelector('.elements__basket');
   deleteButton.addEventListener('click', function () {
@@ -146,7 +152,16 @@ function deleteCard(cardElement) {
   });
 };
 
-/* Слушатели */
+// Оверлей
+function closeOverlay (evt) {
+  if (!evt.target.closest('.overlay')) {
+    closePopupProfile();
+    closePopupCard();
+    closePopupView();
+  };
+};
+
+// Слушатели
 editButton.addEventListener('click', openPopupProfile);
 addButton.addEventListener('click', openPopupCard);
 closeButtonPopupProfile.addEventListener('click', closePopupProfile);
