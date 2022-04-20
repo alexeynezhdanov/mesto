@@ -19,7 +19,6 @@ const cardTemplate = document.querySelector('#card').content;;
 const popupViewImage = document.querySelector('.popup__image');
 const popupViewLabel = document.querySelector('.popup__label');
 
-
 // Исходный массив карточек
 const initialCards = [
   {
@@ -128,7 +127,8 @@ function closePopupView() {
 // Открытие попапов
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  popup.addEventListener('click', closeOverlay);
+  popup.addEventListener('click', closeVariants);
+  document.addEventListener('keydown', closeVariants);
 };
 
 // Закрытие попапов
@@ -152,9 +152,9 @@ function deleteCard(cardElement) {
   });
 };
 
-// Оверлей
-function closeOverlay (evt) {
-  if (!evt.target.closest('.overlay')) {
+// Закрытие по esc и оверлей
+function closeVariants (evt) {
+  if ((!evt.target.closest('.overlay')) || (evt.keyCode === 27)) {
     closePopupProfile();
     closePopupCard();
     closePopupView();
