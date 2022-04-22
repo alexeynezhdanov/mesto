@@ -49,7 +49,7 @@ initialCards.forEach((item) => {
 function openPopupProfile() {
   textName.value = profileName.textContent;
   aboutMe.value = profileAboutMe.textContent;
-  openPopupSetListener(popupProfile);
+  openPopup(popupProfile);
 };
 
 function saveProfile(event) {
@@ -70,7 +70,7 @@ function saveCard(event) {
 // Попап View
 function handleImageClickSetListener(photo, label) {
   photo.addEventListener('click', function () {
-    openPopupSetListener(popupView);
+    openPopup(popupView);
     popupViewImage.src = photo.src;
     popupViewImage.alt = label.textContent;
     popupViewLabel.textContent = label.textContent;
@@ -78,7 +78,7 @@ function handleImageClickSetListener(photo, label) {
 };
 
 // Открытие попапов
-function openPopupSetListener(popup) {
+function openPopup(popup) {
   popup.classList.add('popup_opened');
   popup.addEventListener('click', closeByOverlay);
   document.addEventListener('keydown', closeByEsc);
@@ -103,6 +103,8 @@ function closeByOverlay(evt) {
 // Закрытие попапов
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  popup.removeEventListener('click', closeByOverlay);
+  document.removeEventListener('keydown', closeByEsc);
 };
 
 // Лайки
@@ -123,7 +125,7 @@ function deleteCardSetListener(cardElement) {
 
 // Слушатели
 editButton.addEventListener('click', openPopupProfile);
-addButton.addEventListener('click', () => openPopupSetListener(popupCard));
+addButton.addEventListener('click', () => openPopup(popupCard));
 closeButtonPopupProfile.addEventListener('click', () => closePopup(popupProfile));
 closeButtonPopupCard.addEventListener('click', () => closePopup(popupCard));
 closeButtonPopupView.addEventListener('click', () => closePopup(popupView));
