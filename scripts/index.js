@@ -1,4 +1,4 @@
-import { Card } from './Cardconstructor.js';
+import { Card } from './Card.js';
 import { FormValidator } from './FormValidator.js';
 
 const editButton = document.querySelector('.profile__edit-button');
@@ -19,7 +19,7 @@ const template = document.querySelector('#card').content;
 const popupViewImage = document.querySelector('.popup__image');
 const popupViewLabel = document.querySelector('.popup__label');
 const popupView = document.querySelector('.popup_view');
-const closeButtons = document.querySelectorAll('.popup__close-button');
+const closeButtons = document.querySelectorAll('.popup__close');
 const formValidators = {};
 const initialCards = [
   {
