@@ -27,7 +27,8 @@ export class Card {
     _like() {
         this._elementLike.classList.toggle('element__like_active');
     };
-
+    
+// Публичный метод создания карточки
     generateCard() {
         this._element = this._cardTemplate;
         this._setEventListeners();
