@@ -71,6 +71,7 @@ export class FormValidator {
       this._buttonElement.removeAttribute('disabled');
     };
   };
+  
   // Сброс валидации
   resetValidation() {
     this._toggleButtonState();
