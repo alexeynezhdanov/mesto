@@ -87,7 +87,7 @@ function openPopupProfile() {
   textName.value = profileName.textContent;
   aboutMe.value = profileAboutMe.textContent;
   openPopup(popupProfile);
-  formValidators[popupProfile.querySelector('.popup__form').getAttribute('name')].resetValidation();
+  formValidators[formProfileElement.getAttribute('name')].resetValidation();
 };
 
 function saveProfile(evt) {
@@ -102,7 +102,7 @@ function openPopupCard() {
   cardName.value = '';
   cardLink.value = '';
   openPopup(popupCard);
-  formValidators[popupCard.querySelector('.popup__form').getAttribute('name')].resetValidation();
+  formValidators[formAddCardElement.getAttribute('name')].resetValidation();
 };
 
 function saveCard(evt) {

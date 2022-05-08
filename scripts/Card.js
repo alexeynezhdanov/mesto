@@ -5,7 +5,7 @@ export class Card {
         this._alt = data.name;
         this._handleCardClick = handleCardClick;
         this._cardTemplate = cardSelector;
-    }
+    };
 
     _setEventListeners() {
         this._elementPhoto = this._element.querySelector('.elements__photo');
@@ -22,7 +22,7 @@ export class Card {
         this._elementPhoto.addEventListener('click', () => {
             this._handleCardClick(this._name, this._link);
         });
-    }
+    };
 
     _like() {
         this._elementLike.classList.toggle('element__like_active');
@@ -36,5 +36,5 @@ export class Card {
         this._elementPhoto.alt = this._name;
         this._elementCaption.textContent = this._name;
         return this._element;
-    }
+    };
 };
