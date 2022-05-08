@@ -7,17 +7,12 @@ export class FormValidator {
     this._inputErrorClass = config.inputErrorClass;
     this._errorClass = config.errorClass;
     this._formElement = formElement;
+    this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
+    this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
   }
 
   // Установка слушателя
   _setEventListeners() {
-
-    // Список всех полей Input
-    const inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
-    this._inputList = inputList;
-    const buttonElement = this._formElement.querySelector(this._submitButtonSelector);
-    this._buttonElement = buttonElement;
-
     // Проверить состояние кнопки в самом начале
     this._toggleButtonState();
     this._inputList.forEach((inputElement) => {
@@ -71,7 +66,7 @@ export class FormValidator {
       this._buttonElement.removeAttribute('disabled');
     };
   };
-  
+
   // Сброс валидации
   resetValidation() {
     this._toggleButtonState();
