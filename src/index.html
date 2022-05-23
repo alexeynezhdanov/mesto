@@ -3,11 +3,10 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Проектная работа 7, от Алексея Нежданова на Яндекс.Практикуме">
+  <meta name="description" content="Проектная работа 8, от Алексея Нежданова на Яндекс.Практикуме">
   <meta name="keywords" content="Место">
   <meta name="author" content="Алексей Нежданов">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index.css">
   <title>
     Место
   </title>
@@ -21,7 +20,7 @@
 
   <main class="content">
     <section class="profile">
-      <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватар">
+      <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Аватар">
       <div class="profile__info">
         <div class="profile__edit-name">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -40,9 +39,11 @@
           <h2 class="popup__title">
             Редактировать профиль
           </h2>
-          <input type="text" class="popup__input" id="textName" name="textname" placeholder="Имя" minlength="2" maxlength="40" required>
+          <input type="text" class="popup__input" id="textName" name="name" placeholder="Имя" minlength="2"
+            maxlength="40" required>
           <span class="textName-error"></span>
-          <input type="text" class="popup__input" id="aboutMe" name="aboutme" placeholder="О себе" minlength="2" maxlength="200" required>
+          <input type="text" class="popup__input" id="aboutMe" name="info" placeholder="О себе" minlength="2"
+            maxlength="200" required>
           <span class="aboutMe-error"></span>
           <button type="submit" class="popup__button popup__save-button-profile">
             Сохранить
@@ -59,9 +60,10 @@
           <h2 class="popup__title">
             Новое место
           </h2>
-          <input type="text" class="popup__input" id="cardName" name="cardname" placeholder="Название" minlength="2" maxlength="30" required>
+          <input type="text" class="popup__input" id="cardName" name="name" placeholder="Название" minlength="2"
+            maxlength="30" required>
           <span class="cardName-error"></span>
-          <input type="url" class="popup__input" id="cardLink" name="cardlink" placeholder="Ссылка на картинку" required>
+          <input type="url" class="popup__input" id="cardLink" name="link" placeholder="Ссылка на картинку" required>
           <span class="cardLink-error"></span>
           <button type="submit" class="popup__button popup__create-button-card">
             Создать
@@ -106,12 +108,7 @@
       &copy; 2022. Нежданов Алексей
     </p>
   </footer>
-  <script type="module" src="./scripts/Card.js">
-  </script>
-  <script type="module" src="./scripts/index.js">
-  </script>
-  <script type="module" src="./scripts/FormValidator.js">
-  </script>
+
 </body>
 
 </html>

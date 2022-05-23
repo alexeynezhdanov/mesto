@@ -1,4 +1,4 @@
-export class Card {
+export default class Card {
     constructor(data, cardSelector, handleCardClick) {
         this._name = data.name;
         this._link = data.link;
@@ -7,6 +7,7 @@ export class Card {
         this._cardTemplate = cardSelector;
     };
 
+    // Ставим слушатели
     _setEventListeners() {
         this._elementPhoto = this._element.querySelector('.elements__photo');
         this._elementCaption = this._element.querySelector('.elements__caption');
@@ -18,17 +19,17 @@ export class Card {
         this._elementLike.addEventListener('click', () => {
             this._like();
         });
-        
         this._elementPhoto.addEventListener('click', () => {
             this._handleCardClick(this._name, this._link);
         });
     };
 
+    // Логика лайка
     _like() {
         this._elementLike.classList.toggle('element__like_active');
     };
-    
-// Публичный метод создания карточки
+
+    // Формируем карточку
     generateCard() {
         this._element = this._cardTemplate;
         this._setEventListeners();
