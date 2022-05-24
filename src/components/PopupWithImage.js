@@ -1,20 +1,17 @@
 import Popup from './Popup.js';
-import {
-    popupViewImage,
-    popupViewLabel
-} from '../utils/constants.js';
 
 export default class PopupWithImage extends Popup {
-    constructor(name, link, popupSelector) {
+    constructor(popupSelector) {
         super(popupSelector);
-        this._image = popupViewImage;
-        this._label = popupViewLabel;
-        this._name = name;
-        this._link = link;
+        this._image = this._popup.querySelector('.popup__image');
+        this._label = this._popup.querySelector('.popup__label');
+        
     };
 
     // Вставляем картинку и подпись и открываем попап
-    open() {
+    open(name, link) {
+        this._name = name;
+        this._link = link;
         this._image.src = this._link;
         this._image.alt = this._name;
         this._label.textContent = this._name;

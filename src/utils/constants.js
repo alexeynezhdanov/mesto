@@ -2,16 +2,10 @@ export const editButton = document.querySelector('.profile__edit-button');
 export const addButton = document.querySelector('.profile__add-button');
 export const formAddCardElement = document.querySelector('form[name="card-info"]');
 export const formProfileElement = document.querySelector('form[name="profile-info"]');
-export const popupProfile = document.querySelector('.popup_profile');
-export const popupCard = document.querySelector('.popup_card');
 export const profileName = document.querySelector('.profile__name');
 export const profileAboutMe = document.querySelector('.profile__about-me');
 export const elements = document.querySelector('.elements');
-export const ESC_CODE = 'Escape';
 export const template = document.querySelector('#card').content;
-export const popupViewImage = document.querySelector('.popup__image');
-export const popupViewLabel = document.querySelector('.popup__label');
-export const popupView = document.querySelector('.popup_view');
 export const closeButtons = document.querySelectorAll('.popup__close');
 export const formValidators = {};
 export const initialCards = [

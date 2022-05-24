@@ -1,29 +1,25 @@
-import './pages/index.css';
-import Card from './components/Card.js';
-import Section from './components/Section.js';
-import PopupWithImage from './components/PopupWithImage.js';
-import PopupWithForm from './components/PopupWithForm.js';
-import UserInfo from './components/UserInfo.js';
-import FormValidator from './components/FormValidator.js';
+import '../pages/index.css';
+import Card from '../components/Card.js';
+import Section from '../components/Section.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import UserInfo from '../components/UserInfo.js';
+import FormValidator from '../components/FormValidator.js';
 import {
     elements,
     template,
     initialCards,
-    popupView,
-    popupCard,
-    popupProfile,
     addButton,
     editButton,
     formValidators,
     config,
     formProfileElement,
     formAddCardElement
-} from './utils/constants.js';
+} from '../utils/constants.js';
 
 // Шаблон карточки
 function cardElement(item) {
-    const cardTemplate = template.querySelector('.elements__element').cloneNode(true);
-    const card = new Card(item, cardTemplate, handleCardClick);
+    const card = new Card(item, template, handleCardClick);
     const element = card.generateCard();
     return element;
 }
@@ -39,7 +35,7 @@ cardList.renderItems();
 
 // Попап карточки
 const formAddCard = new PopupWithForm({
-    popupSelector: popupCard,
+    popupSelector: ('.popup_card'),
     handleFormSubmit: (item) => {
         cardList.addItem(cardElement(item));
     }
@@ -47,8 +43,6 @@ const formAddCard = new PopupWithForm({
 
 // Открываем попап добавления карточки
 function openPopupCard() {
-    cardName.value = '';
-    cardLink.value = '';
     formAddCard.open();
     formValidators[formAddCardElement.getAttribute('name')].resetValidation();
 };
@@ -59,28 +53,26 @@ const userInfo = new UserInfo({
     info: '.profile__about-me'
 });
 
-// Данные пользователя подставляем в форму при открытии
+// Открываем попап изменения профиля
 function openProfile() {
     formValidators[formProfileElement.getAttribute('name')].resetValidation();
     const profile = userInfo.getUserInfo();
-    textName.value = profile.name;
-    aboutMe.value = profile.info;
+    formProfileUser.setInputValues(profile);
     formProfileUser.open();
 }
 
 // Попап профиля пользователя 
 const formProfileUser = new PopupWithForm({
-    popupSelector: popupProfile,
+    popupSelector: ('.popup_profile'),
     handleFormSubmit: (item) => {
         userInfo.setUserInfo(item);
     }
 });
 
 // Попап с картинкой
+const imagePopup = new PopupWithImage('.popup_view');
 function handleCardClick(name, link) {
-    const popup = new PopupWithImage(name, link, popupView);
-    popup.open();
-    popup.setEventListeners();
+    imagePopup.open(name, link);
 };
 
 
@@ -106,3 +98,4 @@ editButton.addEventListener('click', () => { openProfile() });
 // Остальные слушатели
 formAddCard.setEventListeners();
 formProfileUser.setEventListeners();
+imagePopup.setEventListeners();

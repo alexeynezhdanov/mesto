@@ -3,14 +3,13 @@ import Popup from './Popup.js';
 export default class PopupWithForm extends Popup {
     constructor({ popupSelector, handleFormSubmit }) {
         super(popupSelector);
-        this._formSelector = popupSelector;
-        this._element = this._formSelector.querySelector('.popup__form');
+        this._element = this._popup.querySelector('.popup__form');
+        this._inputList = this._element.querySelectorAll('.popup__input');
         this._handleFormSubmit = handleFormSubmit;
     };
 
     // Собираем данные всех полей формы
     _getInputValues() {
-        this._inputList = this._element.querySelectorAll('.popup__input');
         this._formValues = {};
         this._inputList.forEach(input => {
             this._formValues[input.name] = input.value;
@@ -23,19 +22,21 @@ export default class PopupWithForm extends Popup {
         this._element.addEventListener('submit', (evt) => {
             evt.preventDefault();
             this._handleFormSubmit(this._getInputValues());
-            this._element.reset();
             this.close();
         });
         super.setEventListeners();
     };
 
-    // Открываем попап
-    open() {
-        super.open();
-    };
+    // Данные пользователя подставляем в форму при открытии
+    setInputValues(data) {
+        this._inputList.forEach((input) => {
+          input.value = data[input.name];
+        });
+      };
 
     // Закрываем попап
     close() {
         super.close();
+        this._element.reset();
     };
 };

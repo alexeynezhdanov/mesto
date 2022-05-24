@@ -4,7 +4,7 @@ export default class Card {
         this._link = data.link;
         this._alt = data.name;
         this._handleCardClick = handleCardClick;
-        this._cardTemplate = cardSelector;
+        this._cardTemplate = cardSelector.querySelector('.elements__element').cloneNode(true);
     };
 
     // Ставим слушатели
