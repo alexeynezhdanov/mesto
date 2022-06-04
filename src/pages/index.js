@@ -9,7 +9,7 @@ import FormValidator from '../components/FormValidator.js';
 import {
     elements,
     template,
-    initialCards,
+    profileName,
     addButton,
     editButton,
     formValidators,
@@ -21,7 +21,11 @@ import {
 // Шаблон карточки
 function cardElement(item) {
     const card = new Card(item, template, handleCardClick, handleClickDelete);
+    console.log(item)
     const element = card.generateCard();
+    if (profileName.textContent === item.owner.name) {
+    card.generateBasket();
+    }
     return element;
 }
 

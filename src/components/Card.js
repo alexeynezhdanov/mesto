@@ -29,19 +29,20 @@ export default class Card {
         this._elementLike.classList.toggle('element__like_active');
     };
 
-    _generateBasket() { 
+    generateBasket() { 
         this._elementPlace.insertAdjacentHTML('afterbegin', '<button type="button" class="elements__basket"></button>');
         this._elementBasket = this._element.querySelector('.elements__basket');
         this._elementBasket.addEventListener('click', () => {
             this._handleClickDelete();
         });
+        console.log(this._owner)
     };
 
     // Формируем карточку
     generateCard() {
         this._element = this._cardTemplate;
         this._setEventListeners();
-        this._generateBasket();
+        
         this._elementPhoto.src = this._link;
         this._elementPhoto.alt = this._name;
         this._elementCaption.textContent = this._name;
