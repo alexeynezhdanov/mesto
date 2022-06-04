@@ -13,12 +13,9 @@ export default class Card {
     _setEventListeners() {
         this._elementPhoto = this._element.querySelector('.elements__photo');
         this._elementCaption = this._element.querySelector('.elements__caption');
-        this._elementBasket = this._element.querySelector('.elements__basket');
+        this._elementPlace = this._element.querySelector('.elements__place');
         this._elementLike = this._element.querySelector('.elements__like');
         this._elementLikesSum = this._element.querySelector('.elements__likes-sum');
-        this._elementBasket.addEventListener('click', () => {
-            this._handleClickDelete;
-        });
         this._elementLike.addEventListener('click', () => {
             this._like();
         });
@@ -32,15 +29,23 @@ export default class Card {
         this._elementLike.classList.toggle('element__like_active');
     };
 
+    _generateBasket() { 
+        this._elementPlace.insertAdjacentHTML('afterbegin', '<button type="button" class="elements__basket"></button>');
+        this._elementBasket = this._element.querySelector('.elements__basket');
+        this._elementBasket.addEventListener('click', () => {
+            this._handleClickDelete();
+        });
+    };
+
     // Формируем карточку
     generateCard() {
         this._element = this._cardTemplate;
         this._setEventListeners();
+        this._generateBasket();
         this._elementPhoto.src = this._link;
         this._elementPhoto.alt = this._name;
         this._elementCaption.textContent = this._name;
         this._elementLikesSum.textContent = this._likes.length;
-        console.log(this._elementLikesSum)
         return this._element;
     };
 };

@@ -44,7 +44,6 @@ fetch('https://mesto.nomoreparties.co/v1/cohort-42/cards', {
             }
         }, elements);
         cardList.renderItems();
-
     });
 
 function post(name, link) {
@@ -66,7 +65,6 @@ const formAddCard = new PopupWithForm({
     popupSelector: ('.popup_card'),
     handleFormSubmit: (item) => {
         /*cardList.addItem(cardElement(item));*/
-        console.log(item)
         post(item.name, item.link)
     }
 });
