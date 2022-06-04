@@ -1,9 +1,11 @@
 export default class Card {
-    constructor(data, cardSelector, handleCardClick) {
+    constructor(data, cardSelector, handleCardClick, handleClickDelete) {
         this._name = data.name;
         this._link = data.link;
         this._alt = data.name;
+        this._likes = data.likes;
         this._handleCardClick = handleCardClick;
+        this._handleClickDelete = handleClickDelete;
         this._cardTemplate = cardSelector.querySelector('.elements__element').cloneNode(true);
     };
 
@@ -13,8 +15,9 @@ export default class Card {
         this._elementCaption = this._element.querySelector('.elements__caption');
         this._elementBasket = this._element.querySelector('.elements__basket');
         this._elementLike = this._element.querySelector('.elements__like');
+        this._elementLikesSum = this._element.querySelector('.elements__likes-sum');
         this._elementBasket.addEventListener('click', () => {
-            this._element.remove();
+            this._handleClickDelete;
         });
         this._elementLike.addEventListener('click', () => {
             this._like();
@@ -36,6 +39,8 @@ export default class Card {
         this._elementPhoto.src = this._link;
         this._elementPhoto.alt = this._name;
         this._elementCaption.textContent = this._name;
+        this._elementLikesSum.textContent = this._likes.length;
+        console.log(this._elementLikesSum)
         return this._element;
     };
 };
