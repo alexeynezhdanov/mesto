@@ -3,6 +3,7 @@ export default class Popup {
         this._popup = document.querySelector(popupSelector);
         this._closeButton = this._popup.querySelector('.popup__close');
         this._handleEscClose = this._handleEscClose.bind(this);
+        this._button = this._popup.querySelector('.popup__button');
     };
 
     // Закрытие попапа клавишей ESC
@@ -24,11 +25,19 @@ export default class Popup {
         });
     };
 
+    // Обработка кнопки загрузки
+    handleButtonSubmit(status, text) {
+        if (status === 'true') {
+            this._button.textContent = text;
+        } else {
+            this._button.textContent = text;
+        }
+      };
+
     // Открытие попапа
     open() {
         this._popup.classList.add('popup_opened');
         document.addEventListener('keydown', this._handleEscClose);
-        console.log('открываем попап');
     };
 
     // Закрытие попапа

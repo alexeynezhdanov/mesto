@@ -1,9 +1,11 @@
 export default class Card {
-    constructor(data, cardSelector, handleCardClick, handleClickDelete) {
+    constructor(data, cardSelector, handleCardClick, handleClickDelete, statusLike) {
         this._name = data.name;
         this._link = data.link;
         this._alt = data.name;
         this._likes = data.likes;
+        this._id = data._id;
+        this._statusLike = statusLike;
         this._handleCardClick = handleCardClick;
         this._handleClickDelete = handleClickDelete;
         this._cardTemplate = cardSelector.querySelector('.elements__element').cloneNode(true);
@@ -26,23 +28,30 @@ export default class Card {
 
     // Логика лайка
     _like() {
-        this._elementLike.classList.toggle('element__like_active');
+        if (!this._elementLike.classList.contains('element__like_active')) {
+            this._statusLike(this._id, 'true');
+            this._elementLike.classList.add('element__like_active');
+            this._elementLikesSum.textContent = this._likes.length + 1;
+        } else {
+            this._statusLike(this._id, 'false');
+            this._elementLike.classList.remove('element__like_active');
+            this._elementLikesSum.textContent = this._likes.length;
+        }
     };
 
-    generateBasket() { 
+    // Формируем корзину на своих карточках
+    generateBasket() {
         this._elementPlace.insertAdjacentHTML('afterbegin', '<button type="button" class="elements__basket"></button>');
         this._elementBasket = this._element.querySelector('.elements__basket');
         this._elementBasket.addEventListener('click', () => {
-            this._handleClickDelete();
+            this._handleClickDelete(this._element, this._id);
         });
-        console.log(this._owner)
     };
 
     // Формируем карточку
     generateCard() {
         this._element = this._cardTemplate;
         this._setEventListeners();
-        
         this._elementPhoto.src = this._link;
         this._elementPhoto.alt = this._name;
         this._elementCaption.textContent = this._name;

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Проектная работа 8, от Алексея Нежданова на Яндекс.Практикуме">
+  <meta name="description" content="Проектная работа 9, от Алексея Нежданова на Яндекс.Практикуме">
   <meta name="keywords" content="Место">
   <meta name="author" content="Алексей Нежданов">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +20,9 @@
 
   <main class="content">
     <section class="profile">
+      <div class="profile__edit-avatar">
       <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Аватар">
+      </div>
       <div class="profile__info">
         <div class="profile__edit-name">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -80,7 +82,7 @@
           <h2 class="popup__title">
             Вы уверены?
           </h2>
-          <button type="submit" class="popup__button">
+          <button type="submit" class="popup__button popup__button-confirm-deletion">
             Да
           </button>
         </form>
@@ -95,8 +97,8 @@
           <h2 class="popup__title">
             Обновить аватар
           </h2>
-          <input type="url" class="popup__input" id="cardLink" name="link" placeholder="Ссылка на картинку" required>
-          <span class="cardLink-error"></span>
+          <input type="url" class="popup__input" id="avatarLink" name="link" placeholder="Ссылка на картинку" required>
+          <span class="avatarLink-error"></span>
           <button type="submit" class="popup__button">
             Сохранить
           </button>
