@@ -2,9 +2,8 @@ import '../pages/index.css';
 import Api from '../components/Api.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
-import PopupWithAvatar from '../components/PopupWithAvatar.js';
 import PopupWithConfirmation from '../components/PopupWithConfirmation.js';
-import PopupWithImage from '../components/PopupWithImage.js';
+import PopupImage from '../components/PopupImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
 import FormValidator from '../components/FormValidator.js';
@@ -18,7 +17,9 @@ import {
     config,
     formProfileElement,
     formAddCardElement,
-    editAvatarButton
+    editAvatarButton,
+    profileAboutMe,
+    profileAvatar
 } from '../utils/constants.js';
 
 // Api
@@ -32,8 +33,8 @@ const api = new Api({
 
 // Отрисовка всех карточек
 const cardList = new Section({
-    renderer: (item) => {
-        cardList.addItemAppend(cardElement(item));
+    renderer: (item, userId) => {
+        cardList.addItemAppend(cardElement(item, userId));
     }
 }, elements);
 
@@ -57,7 +58,6 @@ const formProfileUser = new PopupWithForm({
                 console.log(err);
             })
             .finally(_ => {
-                formProfileUser.close();
                 formProfileUser.handleButtonSubmit('false', 'Сохранить');
             })
     }
@@ -70,39 +70,39 @@ const formAddCard = new PopupWithForm({
         formAddCard.handleButtonSubmit('true', 'Создаём...');
         api.addNewCard(item.name, item.link)
             .then((result) => {
-                cardList.addItemPrepend(cardElement(result));
+                cardList.addItemPrepend(cardElement(result, result.owner._id));
+                formAddCard.close();
             })
             .catch((err) => {
                 console.log(err);
             })
             .finally(_ => {
-                formAddCard.close();
                 formAddCard.handleButtonSubmit('false', 'Создать');
             })
     }
 });
 
 // Попап изменения аватара
-const formChangeAvatar = new PopupWithAvatar({
+const formChangeAvatar = new PopupWithForm({
     popupSelector: ('.popup_avatar'),
     handleFormSubmit: (item) => {
         formChangeAvatar.handleButtonSubmit('true', 'Сохраняем...');
         api.changeAvatar(item)
             .then((result) => {
-                document.querySelector('.profile__avatar').src = result.avatar;
+                profileAvatar.src = result.avatar;
+                formChangeAvatar.close();
             })
             .catch((err) => {
                 console.log(err);
             })
             .finally(_ => {
-                formChangeAvatar.close();
                 formChangeAvatar.handleButtonSubmit('false', 'Сохранить');
             })
     }
 });
 
 // Попап с картинкой
-const imagePopup = new PopupWithImage('.popup_view');
+const imagePopup = new PopupImage('.popup_view');
 function handleCardClick(name, link) {
     imagePopup.open(name, link);
 };
@@ -112,9 +112,9 @@ const сonfirmDeletion = new PopupWithConfirmation({
     popupSelector: ('.popup_confirm-deletion'),
     handleFormSubmit: (id) => {
         api.deleteCard(id)
-        .catch((err) => {
-            console.log(err);
-        })
+            .catch((err) => {
+                console.log(err);
+            })
     }
 });
 
@@ -132,9 +132,9 @@ const enableValidation = (config) => {
 
 
 // Отрисовка всех карточек
-api.getInitialCards()
-    .then((result) => {
-        cardList.renderItems(result);
+Promise.all([api.getProfile(), api.getInitialCards()])
+    .then(([user, cards]) => {
+        cardList.renderItems(cards, user._id);
     })
     .catch((err) => {
         console.log(err);
@@ -143,18 +143,18 @@ api.getInitialCards()
 // Отрисовка профиля
 api.getProfile()
     .then((result) => {
-        document.querySelector('.profile__name').textContent = result.name;
-        document.querySelector('.profile__about-me').textContent = result.about;
+        profileName.textContent = result.name;
+        profileAboutMe.textContent = result.about;
     })
     .catch((err) => {
         console.log(err);
     })
 
 // Шаблон карточки
-function cardElement(item) {
+function cardElement(item, userId) {
     const card = new Card(item, template, handleCardClick, handleClickDelete, statusLike);
     const element = card.generateCard();
-    if (profileName.textContent === item.owner.name) {
+    if (userId === item.owner._id) {
         card.generateBasket();
     }
     return element;

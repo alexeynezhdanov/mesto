@@ -8,6 +8,7 @@ export const elements = document.querySelector('.elements');
 export const template = document.querySelector('#card').content;
 export const closeButtons = document.querySelectorAll('.popup__close');
 export const editAvatarButton = document.querySelector('.profile__edit-avatar');
+export const profileAvatar = document.querySelector('.profile__avatar');
 export const formValidators = {};
 export const initialCards = [
   {

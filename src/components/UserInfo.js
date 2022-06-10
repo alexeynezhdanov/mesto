@@ -15,7 +15,7 @@ export default class UserInfo {
 
     // Добавляем данные пользователя на страницу
     setUserInfo({ name, info }) {
-        this._name.textContent = name;
-        this._info.textContent = info;
+        if(name) {this._name.textContent = name;};
+        if(info) {this._info.textContent = info;};
     };
 };

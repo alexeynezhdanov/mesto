@@ -81,12 +81,12 @@ export default class Api {
   }
 
   // Изменить аватар
-  changeAvatar(link) {
+  changeAvatar(item) {
     return fetch(this.baseUrl + `/users/me/avatar`, {
       method: 'PATCH',
       headers: this.headers,
       body: JSON.stringify({
-        avatar: `${link}`
+        avatar: `${item.link}`
       })
     })
     .then(this._handleResponse)

@@ -15,10 +15,10 @@ export default class Section {
     };
   
     // Отрисовка всех элементов
-    renderItems(items) {
+    renderItems(items, userId) {
       this._renderedItems = items;
       this._renderedItems.forEach(item => {
-        this._renderer(item);
+        this._renderer(item, userId);
       });
     };
   };
