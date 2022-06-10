@@ -17,6 +17,7 @@ import {
     config,
     formProfileElement,
     formAddCardElement,
+    formAvatarElement,
     editAvatarButton,
     profileAboutMe,
     profileAvatar
@@ -118,18 +119,16 @@ const сonfirmDeletion = new PopupWithConfirmation({
     }
 });
 
-
 // Включение валидации
 const enableValidation = (config) => {
     const formList = Array.from(document.querySelectorAll(config.formSelector))
     formList.forEach((formElement) => {
-        const validator = new FormValidator(formElement, config)
-        const formName = formElement.getAttribute('name')
+        const validator = new FormValidator(formElement, config);
+        const formName = formElement.getAttribute('name');
         formValidators[formName] = validator;
         validator.enableValidation();
     });
 };
-
 
 // Отрисовка всех карточек
 Promise.all([api.getProfile(), api.getInitialCards()])
@@ -156,7 +155,12 @@ function cardElement(item, userId) {
     const element = card.generateCard();
     if (userId === item.owner._id) {
         card.generateBasket();
-    }
+    };
+    item.likes.forEach((like) => {
+        if (userId === like._id) {
+            card.like();
+        };
+      });
     return element;
 };
 
@@ -172,7 +176,7 @@ function statusLike(id, status) {
             .catch((err) => {
                 console.log(err);
             })
-    }
+    };
 };
 
 // Открываем попап добавления карточки
@@ -197,6 +201,7 @@ function handleClickDelete(card, cardId) {
 
 // Попап изменения аватара
 function openPopupAvatar() {
+    formValidators[formAvatarElement.getAttribute('name')].resetValidation();
     formChangeAvatar.open();
 };
 

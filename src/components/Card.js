@@ -25,6 +25,11 @@ export default class Card {
             this._handleCardClick(this._name, this._link);
         });
     };
+    
+    // Рисуем лайки на загруженных карточках
+    like() {
+        this._elementLike.classList.add('element__like_active');
+    };
 
     // Логика лайка
     _like() {
