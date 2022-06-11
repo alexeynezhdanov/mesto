@@ -10,7 +10,6 @@ import FormValidator from '../components/FormValidator.js';
 import {
     elements,
     template,
-    profileName,
     addButton,
     editButton,
     formValidators,
@@ -19,7 +18,6 @@ import {
     formAddCardElement,
     formAvatarElement,
     editAvatarButton,
-    profileAboutMe,
     profileAvatar
 } from '../utils/constants.js';
 
@@ -42,7 +40,7 @@ const cardList = new Section({
 // Объект по классу профиля
 const userInfo = new UserInfo({
     name: '.profile__name',
-    info: '.profile__about-me'
+    about: '.profile__about-me'
 });
 
 // Попап редактирования профиля пользователя
@@ -51,7 +49,7 @@ const formProfileUser = new PopupWithForm({
     handleFormSubmit: (item) => {
         userInfo.setUserInfo(item);
         formProfileUser.handleButtonSubmit('true', 'Сохраняем...');
-        api.changeProfile(item.name, item.info)
+        api.changeProfile(item.name, item.about)
             .then(() => {
                 formProfileUser.close();
             })
@@ -134,16 +132,7 @@ const enableValidation = (config) => {
 Promise.all([api.getProfile(), api.getInitialCards()])
     .then(([user, cards]) => {
         cardList.renderItems(cards, user._id);
-    })
-    .catch((err) => {
-        console.log(err);
-    })
-
-// Отрисовка профиля
-api.getProfile()
-    .then((result) => {
-        profileName.textContent = result.name;
-        profileAboutMe.textContent = result.about;
+        userInfo.setUserInfo(user);
     })
     .catch((err) => {
         console.log(err);

@@ -1,21 +1,21 @@
 export default class UserInfo {
-    constructor({ name, info }) {
+    constructor({ name, about }) {
         this._name = document.querySelector(name);
-        this._info = document.querySelector(info);
+        this._about = document.querySelector(about);
     };
 
     // Возвращаем объект с данными пользователя для подстановки в форму
     getUserInfo() {
         const profile = {
         name: this._name.textContent,
-        info: this._info.textContent
+        about: this._about.textContent
         };
         return profile;
     };
 
     // Добавляем данные пользователя на страницу
-    setUserInfo({ name, info }) {
+    setUserInfo({ name, about }) {
         if(name) {this._name.textContent = name;};
-        if(info) {this._info.textContent = info;};
+        if(about) {this._about.textContent = about;};
     };
 };
